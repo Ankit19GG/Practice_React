@@ -1,5 +1,7 @@
 import { useState } from "react";
 import data from './data';
+import { FaAngleDown } from "react-icons/fa";
+import { TbRotate360 } from "react-icons/tb";
 
 function Accordian() {
     const [selected, setselected] = useState(null);
@@ -27,9 +29,16 @@ function Accordian() {
                 {data && data.length !== 0 ? (
                     data.map(dataItem => (
                         <div key={dataItem.id} className="flex flex-col border-amber-50 border-2 mb-3 p-2">
-                            <div onClick={() => handleSelected(dataItem.id)} className="flex cursor-pointer">
+                            <div onClick={() => handleSelected(dataItem.id)} className="flex cursor-pointer justify-between">
                                 <h3 className="mr-2">{dataItem.question}</h3>
-                                <span>+</span>
+                                <FaAngleDown
+                                    size={25}
+                                    className={
+                                        multiSelect
+                                            ? (selectIndex.includes(dataItem.id) ? "transition-transform rotate-180 duration-300" : "transition-transform duration-300")
+                                            : (selected === dataItem.id ? "transition-transform rotate-180 duration-300" : "transition-transform duration-300")
+                                    }
+                                />
                             </div>
                             {multiSelect
                                 ? selectIndex.includes(dataItem.id) && (
