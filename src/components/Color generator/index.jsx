@@ -10,8 +10,8 @@ function ColorGenerator(){
 
     useEffect(()=>{
         if(typeofCode){
-            const code =Math.floor(Math.random()*16777215).toString(16);
-            code.length<6?code="0"+code:null;
+            let code = Math.floor(Math.random()*16777215).toString(16);
+            code.length<6 ? code="0"+code : null;
             setCode("#"+code);
         }
         else{
@@ -24,15 +24,15 @@ function ColorGenerator(){
            <div>
             <button onClick={()=>settypeofCode(!typeofCode)}>Create {typeofCode?"RGB":"HEX"} Color</button>
             <button onClick={()=>{
-                if (typeofCode){
-                    const code =Math.floor(Math.random()*16777215).toString(16);
-                    code.length<6?code="0"+code:null;
-                    setCode("#"+code);
-                }
-                else{
-                    setCode("rgb("+rgb()+","+rgb()+","+rgb()+")");   
-                };
-            }}>Generate Random color</button>
+    if (typeofCode){
+        let code = Math.floor(Math.random()*16777215).toString(16);
+        (code.length<6)?code="0"+code:null;
+        setCode("#"+code);
+    }
+    else{
+        setCode("rgb("+rgb()+","+rgb()+","+rgb()+")");   
+    };
+}}>Generate Random color</button>
            </div>
            <p className="text-6xl font-medium my-10">{typeofCode?"HEX":"RGB"} Color</p>
            <p className="text-8xl font-medium my-15">{code}</p>
