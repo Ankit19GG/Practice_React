@@ -27,12 +27,6 @@ function ImageSlider({url,limit}){
         }
     },[url,limit])
 
-    useEffect(()=>{
-        console.log(images)
-        const test = images[imgindex]
-        if (test) console.log(test.download_url)
-    },[images])
-
     if(loading){
         return (
             <div className="bg-amber-300 h-100 flex justify-center items-center text-5xl font-medium">Loading... Please wait</div>
